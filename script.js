@@ -30,7 +30,7 @@ async function entryIterator() {
   console.log(response);
   entries = response["entries"];
   console.log(entries);
-  for (i = 0; i < entries.length(); i++) {
+  for (i = 0; i < entries.length; i++) {
     displayEntry(entries[i]);
   }
 }
