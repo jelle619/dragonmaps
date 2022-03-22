@@ -38,7 +38,7 @@ async function displayEntries() {
         color: 'red',
         fillColor: '#f03',
         fillOpacity: 0.5,
-        radius:  5565.995
+        radius: entries[i]["accuracy"]
     }).addTo(map);
   }
 }
