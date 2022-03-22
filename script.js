@@ -27,7 +27,7 @@ function getData() {
 
 async function displayEntries() {
   response = JSON.parse(await getData());
-  for (i = 0; i < entries.length; i++) {
+  for (i = 0; i < response["entries"].length; i++) {
     var marker = L.marker(response["entries"][i]["coordinates"]).addTo(map);
   }
 }
