@@ -25,19 +25,12 @@ function getData() {
   });
 }
 
-async function entryIterator() {
+async function displayEntries() {
   response = JSON.parse(await getData());
-  console.log(response);
-  entries = response["entries"];
-  console.log(entries);
   for (i = 0; i < entries.length; i++) {
-    displayEntry(entries[i]);
+    var marker = L.marker(response["entries"][i]["coordinates"]).addTo(map);
   }
 }
-
-displayEntry = function (entry) {
-  var marker = L.marker(entry["coordinates"]).addTo(map);
-};
 
 // Map creation
 var map = L.map('map', {
@@ -70,4 +63,4 @@ var circle = L.circle([51.690486599927794, 5.296194152088851], {
 var marker = L.marker([51.690486599927794, 5.296194152088851]).addTo(map);
 
 // Add entries
-entryIterator();
+displayEntries();
