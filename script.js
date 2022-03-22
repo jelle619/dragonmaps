@@ -28,7 +28,7 @@ function getData() {
 async function entryIterator() {
   response = JSON.parse(await getData());
   entries = response["entries"];
-  for (i = 0; i < entires.length(); i++) {
+  for (i = 0; i < entries.length(); i++) {
     displayEntry(entries[i]);
   }
 }
