@@ -27,8 +27,19 @@ function getData() {
 
 async function displayEntries() {
   response = JSON.parse(await getData());
+  entries = response["entries"];
   for (i = 0; i < response["entries"].length; i++) {
-    var marker = L.marker(response["entries"][i]["coordinates"]).addTo(map);
+    // Add marker
+    var marker = L.marker(entries[i]["coordinates"]).addTo(map);
+    // Add popup
+    marker.bindPopup("<b>" + entries[i]["name"] + "</b>")
+    // Add circle
+    var circle = L.circle(entries[i]["coordinates"], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius:  5565.995
+    }).addTo(map);
   }
 }
 
