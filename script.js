@@ -32,16 +32,20 @@ async function displayEntries() {
     // Get entry link details
     console.log(response["entries"][i].hasOwnProperty("links"));
     console.log(response["entries"][i]["links"]);
-    var links = "";
+    var links = "<br><br>";
+    var linksEmpty = true;
     if (response["entries"][i].hasOwnProperty("links")) {
-        if (response["entries"][i]["links"].length > 0) {
-            links = "<br><br>";
-            for (var key in response["entries"][i]["links"]) {
-                links = links + "<a href='" + response["entries"][i]["links"][key] + "'>" + key + "</a><br>";
-            }
+        for (var key in response["entries"][i]["links"]) {
+            links = links + "<a href='" + response["entries"][i]["links"][key] + "'>" + key + "</a><br>";
+            linksEmpty = false;
             console.log(links);
         }
     }
+    if (linksEmpty) {
+      links = "";
+      console.log(links);
+    }
+    
     // Add marker
     var marker = L.marker(entries[i]["coordinates"]).addTo(map);
     // Add popup
