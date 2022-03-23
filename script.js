@@ -46,7 +46,7 @@ async function displayEntries() {
     // Add marker
     var marker = L.marker(entries[i]["coordinates"]).addTo(map);
     // Add popup
-    marker.bindPopup("<img src='avatars/" + entries[i]["avatar"] + "' width='80' height='80'><br><br><b>" + entries[i]["name"] + "</b><br><br>" + entries[i]["description"] + links )
+    marker.bindPopup("<b>" + entries[i]["name"] + "</b>" + "<br><br>" + "<img src='avatars/" + entries[i]["avatar"] + "' width='80' height='80'>" + "<br><br>" + entries[i]["description"] + links )
     // Add circle
     var circle = L.circle(entries[i]["coordinates"], {
         color: 'red',
