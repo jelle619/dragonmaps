@@ -29,6 +29,7 @@ async function displayEntries() {
   response = JSON.parse(await getData());
   entries = response["entries"];
   for (i = 0; i < response["entries"].length; i++) {
+    
     // Get entry link details
     var links = "<br><br>";
     var linksEmpty = true;
@@ -45,7 +46,7 @@ async function displayEntries() {
     // Add marker
     var marker = L.marker(entries[i]["coordinates"]).addTo(map);
     // Add popup
-    marker.bindPopup("<b>" + entries[i]["name"] + "</b><br><br>" + entries[i]["description"] + links )
+    marker.bindPopup("<img src='avatars/" + entries[i]["avatar"] + "' width='100' height='100'><br><b>" + entries[i]["name"] + "</b><br><br>" + entries[i]["description"] + links )
     // Add circle
     var circle = L.circle(entries[i]["coordinates"], {
         color: 'red',
