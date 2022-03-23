@@ -30,20 +30,16 @@ async function displayEntries() {
   entries = response["entries"];
   for (i = 0; i < response["entries"].length; i++) {
     // Get entry link details
-    console.log(response["entries"][i].hasOwnProperty("links"));
-    console.log(response["entries"][i]["links"]);
     var links = "<br><br>";
     var linksEmpty = true;
     if (response["entries"][i].hasOwnProperty("links")) {
         for (var key in response["entries"][i]["links"]) {
             links = links + "<a href='" + response["entries"][i]["links"][key] + "'>" + key + "</a><br>";
             linksEmpty = false;
-            console.log(links);
         }
     }
     if (linksEmpty) {
       links = "";
-      console.log(links);
     }
     
     // Add marker
