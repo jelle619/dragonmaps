@@ -29,10 +29,20 @@ async function displayEntries() {
   response = JSON.parse(await getData());
   entries = response["entries"];
   for (i = 0; i < response["entries"].length; i++) {
+    // Get entry link details
+    var links = "";
+    if (response["entries"][i].hasOwnProperty("links") {
+        if (response["entries"][i]["links"].length > 0) {
+            links = "<br><br>";
+            for (var key in response["entries"][i]["links"]) {
+                links = links + "<a href='" + response["entries"][i]["links"][key] + "'> + key + "</a><br>";
+            }
+        }
+    }
     // Add marker
     var marker = L.marker(entries[i]["coordinates"]).addTo(map);
     // Add popup
-    marker.bindPopup("<b>" + entries[i]["name"] + "</b><br><br>" + entries[i]["description"])
+    marker.bindPopup("<b>" + entries[i]["name"] + "</b><br><br>" + entries[i]["description"] + links )
     // Add circle
     var circle = L.circle(entries[i]["coordinates"], {
         color: 'red',
