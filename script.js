@@ -32,13 +32,13 @@ async function displayEntries() {
     // Add marker
     var marker = L.marker(entries[i]["coordinates"]).addTo(map);
     // Add popup
-    marker.bindPopup("<b>" + entries[i]["name"] + "</b>")
+    marker.bindPopup("<b>" + entries[i]["name"] + "</b><br><br>" + entries[i]["description"])
     // Add circle
     var circle = L.circle(entries[i]["coordinates"], {
         color: 'red',
         fillColor: '#f03',
         fillOpacity: 0.5,
-        radius: entries[i]["accuracy"]
+        radius: entries[i]["approximation"]
     }).addTo(map);
   }
 }
