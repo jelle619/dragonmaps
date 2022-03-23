@@ -35,7 +35,7 @@ async function displayEntries() {
         if (response["entries"][i]["links"].length > 0) {
             links = "<br><br>";
             for (var key in response["entries"][i]["links"]) {
-                links = links + "<a href='" + response["entries"][i]["links"][key] + "'> + key + "</a><br>";
+                links = links + "<a href='" + response["entries"][i]["links"][key] + "'>" + key + "</a><br>";
             }
         }
     }
