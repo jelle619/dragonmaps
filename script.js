@@ -31,7 +31,7 @@ async function displayEntries() {
   for (i = 0; i < response["entries"].length; i++) {
     // Get entry link details
     var links = "";
-    if (response["entries"][i].hasOwnProperty("links") {
+    if (response["entries"][i].hasOwnProperty("links")) {
         if (response["entries"][i]["links"].length > 0) {
             links = "<br><br>";
             for (var key in response["entries"][i]["links"]) {
