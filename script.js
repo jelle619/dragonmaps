@@ -49,9 +49,9 @@ async function displayEntries() {
     marker.bindPopup("<b>" + entries[i]["name"] + "</b>" + "<br><br>" + "<img src='avatars/" + entries[i]["avatar"] + "' width='80' height='80'>" + "<br><br>" + entries[i]["description"] + links )
     // Add circle
     var circle = L.circle(entries[i]["coordinates"], {
-        color: 'red',
-        fillColor: '#f03',
-        fillOpacity: 0.5,
+        color: entries[i]["color"],
+        fillColor: entries[i]["color"],
+        fillOpacity: 0.3,
         radius: entries[i]["approximation"]
     }).addTo(map);
   }
