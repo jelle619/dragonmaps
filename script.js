@@ -51,7 +51,7 @@ async function displayEntries() {
     var circle = L.circle(entries[i]["coordinates"], {
         color: entries[i]["color"],
         fillColor: entries[i]["color"],
-        fillOpacity: 0.3,
+        fillOpacity: 0.2,
         radius: entries[i]["approximation"]
     }).addTo(map);
   }
